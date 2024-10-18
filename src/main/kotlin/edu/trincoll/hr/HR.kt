@@ -7,4 +7,20 @@ package edu.trincoll.hr
 //   - a payEmployees method that returns the total pay of all employees
 class HR(private val employees: List<Employee> = emptyList()) {
 
+    fun hire(employee: Employee): HR{
+        return HR(employees + employee)
+    }
+
+    fun fire( id: Int): HR{
+        return HR(employees - employees[id])
+    }
+
+    fun payEmployees(): Double {
+        var total = 0.0
+        for (employee in employees){
+            total += employee.pay()
+        }
+        return total
+    }
+
 }
